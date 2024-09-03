@@ -11,14 +11,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class test2 {
 
     @Test
-    public void testGetD(){ //проверяем функцию вычисления дискриминанта (положительное число)
+    public void testGetD(){ 
         MathService mathService = new MathService();
         int result = mathService.getD(1,5,3);
         assertEquals(13,result);
     }
 
     @Test
-    public void testPair(){//проверка метода Pair
+    public void testPair(){
         Pair pair = new Pair(1.0,5.0);
         String res = pair.toString();
         assertEquals("Answer{first=1.0, second=5.0}", res );
@@ -26,7 +26,7 @@ public class test2 {
     }
 
     @Test
-    public void testgetAnswerDLessThanZero() {//дискриминант меньше 0
+    public void testgetAnswerDLessThanZero() {
         MathService mathService = new MathService();
           assertThatThrownBy(() ->
                 mathService.getAnswer(1, 2, 3)
@@ -34,7 +34,7 @@ public class test2 {
     }
 
     @Test
-    public void testAnswerDequalToZero() throws NotFoundAnswerException {//дискриминант равен 0
+    public void testAnswerDequalToZero() throws NotFoundAnswerException {
         MathService mathService = new MathService();
         Pair result = mathService.getAnswer(1,2,1);
         Pair pair = new Pair(result.first,result.second);
@@ -44,7 +44,7 @@ public class test2 {
     }
 
     @Test
-    public void testAnswerDGreaterThanZero() throws NotFoundAnswerException {//дискриминант больше 0
+    public void testAnswerDGreaterThanZero() throws NotFoundAnswerException {
         MathService mathService = new MathService();
         Pair result = mathService.getAnswer(1,5,3);
         System.out.println(result);
@@ -55,7 +55,7 @@ public class test2 {
     }
 
     @ParameterizedTest
-    @CsvSource({"1,2,3","4,5,6","7,8,9"}) //дискриминант меньше 0 параметризованный
+    @CsvSource({"1,2,3","4,5,6","7,8,9"}) 
     public void testParam (int x, int y, int z)  {
         MathService mathService = new MathService();
         assertThatThrownBy(() ->
@@ -65,7 +65,7 @@ public class test2 {
     }
 
     @Test
-    public void testOne() throws NotFoundAnswerException { //все проверки
+    public void testOne() throws NotFoundAnswerException { 
         MathService mathService = new MathService();
 
         assertThat(mathService.getAnswer(1,2,1).toString()).isEqualTo("Answer{first=-1.0, second=-1.0}");
